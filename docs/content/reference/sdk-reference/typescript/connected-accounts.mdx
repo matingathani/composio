@@ -205,7 +205,7 @@ const connectionRequest = await composio.connectedAccounts.initiate(
 ### link()
 
 ```typescript
-async link(userId: string, authConfigId: string, options?: { alias?: string; callbackUrl?: string }): Promise<ConnectionRequest>
+async link(userId: string, authConfigId: string, options?: { alias?: string; allowMultiple?: boolean; callbackUrl?: string }): Promise<ConnectionRequest>
 ```
 
 **Parameters**

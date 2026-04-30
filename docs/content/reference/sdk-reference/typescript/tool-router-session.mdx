@@ -16,9 +16,12 @@ const result = await composio.toolRouterSession.list();
 
 | Name | Type |
 |------|------|
+| `configVersion` | `number` |
 | `experimental` | `SessionExperimental` |
 | `mcp` | `object` |
+| `preload` | `Preload` |
 | `sessionId` | `string` |
+| `warnings` | `Warning[]` |
 
 ## Methods
 
@@ -89,7 +92,7 @@ full slug (e.g. "LOCAL_GREP"). Custom tools are executed in-process;
 remote tools are sent to the Composio backend.
 
 ```typescript
-async execute(toolSlug: string, arguments_?: Record<string, unknown>): Promise<{ data: Record<string, unknown>; error: string | null; logId: string }>
+async execute(toolSlug: string, arguments_?: Record<string, unknown>, options?: ToolRouterSessionExecuteOptions): Promise<{ data: Record<string, unknown>; error: string | null; logId: string }>
 ```
 
 **Parameters**
@@ -98,6 +101,7 @@ async execute(toolSlug: string, arguments_?: Record<string, unknown>): Promise<{
 |------|------|-------------|
 | `toolSlug` | `string` | The tool slug to execute |
 | `arguments_?` | `Record<string, unknown>` | Optional tool arguments |
+| `options?` | `ToolRouterSessionExecuteOptions` | Optional execution options |
 
 **Returns**
 
