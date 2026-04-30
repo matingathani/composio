@@ -67,7 +67,7 @@ def initiate(user_id: str, auth_config_id: str, callback_url: str | None = ..., 
 Create a Composio Connect Link for a user to connect their account to a given auth config.  This method will return an external link which you can use for the user to connect their account.
 
 ```python
-def link(user_id: str, auth_config_id: str, callback_url: str | None = ..., alias: str | None = ...) -> ConnectionRequest
+def link(user_id: str, auth_config_id: str, callback_url: str | None = ..., alias: str | None = ..., allow_multiple: bool = ...) -> ConnectionRequest
 ```
 
 **Parameters**
@@ -78,6 +78,7 @@ def link(user_id: str, auth_config_id: str, callback_url: str | None = ..., alia
 | `auth_config_id` | `str` |
 | `callback_url?` | `str \| None` |
 | `alias?` | `str \| None` |
+| `allow_multiple?` | `bool` |
 
 **Returns**
 

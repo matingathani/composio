@@ -10,6 +10,7 @@ description: "Tool router session containing session information and methods.  G
 | `session_id` | `str` |
 | `mcp` | `Any` |
 | `experimental` | `'ToolRouterSessionExperimental'` |
+| `preload` | `Any` |
 
 ## Methods
 
@@ -102,10 +103,10 @@ def search(query: str, model: str | None = ...) -> SessionSearchResponse
 
 ### execute()
 
-Execute a tool within the session.  For custom tools, accepts the original slug (e.g. "GREP") or the full slug (e.g. "LOCAL_GREP"). Custom tools are executed in-process; remote tools are sent to the Composio backend.  Both paths return a ``SessionExecuteResponse`` with ``data``, ``error``, and ``log_id`` attributes.
+Execute a tool within the session.  For custom tools, accepts the original slug (e.g. "GREP") or the full slug (e.g. "LOCAL_GREP"). Custom tools are executed in-process; remote tools are sent to the Composio backend.
 
 ```python
-def execute(tool_slug: str, arguments: Dict[str, Any | None] = ...) -> SessionExecuteResponse
+def execute(tool_slug: str, arguments: Dict[str, Any | None] = ..., account: str | None = ...) -> SessionExecuteResponse
 ```
 
 **Parameters**
@@ -114,6 +115,7 @@ def execute(tool_slug: str, arguments: Dict[str, Any | None] = ...) -> SessionEx
 |------|------|
 | `tool_slug` | `str` |
 | `arguments?` | `Dict[str, Any \| None]` |
+| `account?` | `str \| None` |
 
 **Returns**
 
@@ -179,4 +181,4 @@ def proxy_execute(toolkit: str, endpoint: str, method: Literal['GET', 'POST', 'P
 
 ---
 
-[View source](https://github.com/composiohq/composio/blob/next/python/composio/core/models/tool_router_session.py#L53)
+[View source](https://github.com/composiohq/composio/blob/next/python/composio/core/models/tool_router_session.py#L61)
